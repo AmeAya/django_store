@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <h1>{{ Message }} {{ user.username }}</h1>
+        <h3>{{ Customer.phone }}</h3>
+        <button onclick="location.href='{% url 'logout_url' %}'">Log Out</button>
+    {% else %}
+        <button onclick="location.href='{% url 'login_url' %}'">Log In</button>
+    {% endif %}
+</body>
+</html>
