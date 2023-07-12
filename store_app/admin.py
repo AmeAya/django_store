@@ -3,3 +3,5 @@ from .models import *
 
 
 admin.site.register(Customer)
+admin.site.register(Category)
+admin.site.register(Good)

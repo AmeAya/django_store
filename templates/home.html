@@ -8,6 +8,12 @@
     {% if user.is_authenticated %}
         <h1>{{ Message }} {{ user.username }}</h1>
         <h3>{{ Customer.phone }}</h3>
+
+        {% for category in Categories %}
+            <a href="{% url 'goods_by_category_url' category.id %}">{{ category.name }}</a>
+        {% endfor %}
+
+        <br><br><br>
         <button onclick="location.href='{% url 'logout_url' %}'">Log Out</button>
     {% else %}
         <button onclick="location.href='{% url 'login_url' %}'">Log In</button>

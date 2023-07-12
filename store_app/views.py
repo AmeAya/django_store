@@ -18,8 +18,16 @@ def homeView(request):  # Каждая view должна принимать requ
     # Используйте get когда берем только 1 запись (Желательно по id/pk)
     # print(customer)
 
+    categories = Category.objects.all()
     context = {'Customer': customer,
-               'Message': 'I am Alive'}
+               'Message': 'I am Alive',
+               'Categories': categories}
     # context - Данные которые возвращаются на html
     # context обязан быть словарем (dictionary)
     return render(request, 'home.html', context)
+
+
+def getGoodsByCategory(request, category_pk):
+    goods = Good.objects.filter(category=category_pk)
+    context = {'goods': goods}
+    return render(request, 'goods_by_category.html', context)
