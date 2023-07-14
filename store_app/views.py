@@ -31,3 +31,9 @@ def getGoodsByCategory(request, category_pk):
     goods = Good.objects.filter(category=category_pk)
     context = {'goods': goods}
     return render(request, 'goods_by_category.html', context)
+
+
+def goodDetail(request, good_pk):
+    good = Good.objects.get(pk=good_pk)
+    context = {'good': good}
+    return render(request, 'good_detail.html', context)

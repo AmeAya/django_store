@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Goods by Category</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
     {% for good in goods %}
-        <h2>{{ good.name }}</h2>
+        <h1><a href="{% url 'good_detail' good.id %}">{{ good.name }}</a></h1>
         <h3>{{ good.price }}</h3>
         <p>{{ good.description }}</p>
     {% endfor %}
-</body>
-</html>
+{% endblock content %}

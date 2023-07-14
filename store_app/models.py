@@ -18,6 +18,7 @@ class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone = models.CharField(max_length=12, validators=[MinLengthValidator(12)])
     iin = models.CharField(max_length=12, validators=[MinLengthValidator(12)])
+    photo = models.ImageField(upload_to='customers/', null=True, blank=True)
 
 
 class Good(models.Model):
@@ -25,6 +26,7 @@ class Good(models.Model):
     description = models.TextField(null=True, blank=True)
     price = models.PositiveIntegerField()  # Если null и blank не указаны. Значит они False
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    photo = models.ImageField(upload_to='goods/', null=True, blank=True)
 
 
 # OneToMany/ManyToOne -> ForeignKey
