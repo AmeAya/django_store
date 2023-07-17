@@ -2,7 +2,9 @@
 {% block content %}
     <h1>{{ good.name }}</h1>
     <p>{{ good.category.name }}</p>
-    <img src="{{ good.photo.url }}">
+    {% if good.photo %}
+        <img src="{{ good.photo.url }}">
+    {% endif %}
     <p>{{ good.description }}</p>
     <h3>{{ good.price }}</h3>
 {% endblock content %}

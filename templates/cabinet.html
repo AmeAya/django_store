@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>{{ Message }} {{ user.username }}</h1>
+    <h3>{{ Customer.phone }}</h3>
+    {% if Customer.photo %}
+        <img src="{{ Customer.photo.url }}">
+    {% endif %}
+    <br>
+    <br>
+    <h1>Update your data:</h1>
+    <form action="{% url 'cabinet' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="phone_id">New Phone:</label>
+        <input type="tel" id="phone_id" name="phone_name" pattern="[+][7][0-9]{10}"
+               placeholder="{{ Customer.phone }}">
+        <br>
+
+        <label for="username_id">New Username:</label>
+        <input type="text" id="username_id" name="username_name">
+        <br>
+
+        <label for="photo_id">Input New Photo:</label>
+        <input type="file" id="photo_id" name="photo_name">
+        <br>
+
+        <input type="submit" value="Update">
+    </form>
+{% endblock content %}

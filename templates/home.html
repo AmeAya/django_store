@@ -1,11 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
     {% if user.is_authenticated %}
-        <h1>{{ Message }} {{ user.username }}</h1>
-        <h3>{{ Customer.phone }}</h3>
-        <img src="{{ Customer.photo.url }}">
-        <br>
-
         {% for category in Categories %}
             <a href="{% url 'goods_by_category_url' category.id %}">{{ category.name }}</a>
         {% endfor %}
